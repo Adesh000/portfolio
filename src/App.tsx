@@ -1,4 +1,4 @@
-import { CustomCursor, Navbar, ParticlesBackground } from "./components";
+import { CustomCursor, Navbar } from "./components";
 import {
   About,
   Contact,
@@ -13,7 +13,7 @@ import {
 function App() {
   return (
     <div className="relative gradient text-white">
-      <ParticlesBackground />
+      {/* <ParticlesBackground /> */}
       <CustomCursor />
       <Navbar />
       <Home />
