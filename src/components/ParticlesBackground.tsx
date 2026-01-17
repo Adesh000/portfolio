@@ -3,9 +3,9 @@ import { useEffect, useRef } from "react";
 const ParticlesBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   useEffect(() => {
-    const canvas = canvasRef?.current;
-    const ctx = canvas.getContext("2d");
-
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d")!;
     let particles: Particle[] = [];
     const partcleCount = 70;
     const colors = ["rgba(255,255,255, 0.7)", "rgba(244, 79, 79, 0.7)"];
@@ -18,8 +18,8 @@ const ParticlesBackground = () => {
       speedX: number;
       speedY: number;
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
         this.radius = Math.random() * 2 + 1;
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.speedX = (Math.random() - 0.5) * 0.5;
@@ -39,10 +39,10 @@ const ParticlesBackground = () => {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        if (this.x < 0) this.x = canvas!.width;
+        if (this.x > canvas!.width) this.x = 0;
+        if (this.y < 0) this.y = canvas!.height;
+        if (this.y > canvas!.height) this.y = 0;
 
         this.draw();
       }

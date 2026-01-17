@@ -7,7 +7,7 @@ const Navbar = () => {
   const [visible, setVisible] = useState<boolean>(true);
   const [forceVisible, setForceVisible] = useState<boolean>(false);
   const lastScrollY = useRef(0);
-  const timerId = useRef(null);
+  const timerId = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const homeSection = document.querySelector("#home");
