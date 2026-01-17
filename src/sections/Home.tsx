@@ -1,12 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import { ParticlesBackground } from "../components";
-import { hover, motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import avatar from "../assets/avator.png";
 const socials = [
-  { name: "GitHub", url: "", icon: FaGithub },
-  { name: "LinkedIn", url: "", icon: FaLinkedin },
-  { name: "Twitter", url: "", icon: FaTwitter },
+  { name: "GitHub", url: "https://github.com/Adesh000", icon: FaGithub },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/adeshnayak007/",
+    icon: FaLinkedin,
+  },
+  { name: "Twitter", url: "https://x.com/SmarthShringir1", icon: FaTwitter },
 ];
 
 const glowVariants = {
@@ -34,7 +38,7 @@ const Home = () => {
   const [deleting, setDeleting] = useState(false);
   const roles = useMemo(
     () => [
-      "Full-Stack Developer",
+      "Front end Developer",
       "React Native Developer",
       "Mobile App Developer",
     ],
@@ -95,7 +99,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              Hello I'm <br />{" "}
+              Hello, I'm <br />{" "}
               <span className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap font-bold">
                 Adesh Nayak
               </span>
@@ -140,6 +144,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                   aria-label={social.name}
                   variants={glowVariants}
+                  animate="active"
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
@@ -152,6 +157,19 @@ const Home = () => {
           </div>
         </div>
         <div className="relative hidden lg:block">
+          <div
+            className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+            style={{
+              right: "10px",
+              width: "min(22vw, 410px)",
+              height: "min(80vh, 760px)",
+              borderRadius: "50%",
+              filter: "blur(38px)",
+              opacity: 0.32,
+              background:
+                "conic-gradient(from 0deg , #1cd8d2, #00bf8f, #302b63, #1cd8d2)",
+            }}
+          />
           <motion.img
             src={avatar}
             alt=""

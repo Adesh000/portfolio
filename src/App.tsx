@@ -1,4 +1,5 @@
-import { CustomCursor, Navbar } from "./components";
+import { useState } from "react";
+import { CustomCursor, IntroAnimations, Navbar } from "./components";
 import {
   About,
   Contact,
@@ -11,20 +12,25 @@ import {
 } from "./sections";
 
 function App() {
+  const [introDone, setIntroDone] = useState(false);
+  if (!introDone) {
+    return <IntroAnimations onFinish={() => setIntroDone(true)} />;
+  }
   return (
-    <div className="relative gradient text-white">
-      {/* <ParticlesBackground /> */}
-      <CustomCursor />
-      <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <div className="relative gradient text-white">
+        <CustomCursor />
+        <Navbar />
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 
